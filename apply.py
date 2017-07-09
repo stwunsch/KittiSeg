@@ -19,7 +19,7 @@ if __name__=='__main__':
     sess = tf.Session()
 
     # NOTE: In this path should be a file `checkpoint`, which links to the latest model files
-    path_weights = tf.train.latest_checkpoint('RUNS/KittiSeg_2017_07_09_13.43/')
+    path_weights = tf.train.latest_checkpoint('renamed/')
     path_graph = '{}.meta'.format(path_weights)
 
     print('Restore graph from file: {}'.format(path_graph))
@@ -29,8 +29,8 @@ if __name__=='__main__':
     saver.restore(sess, path_weights)
 
     # Get input and output nodes
-    image = tf.get_default_graph().get_tensor_by_name('Validation/input_image:0')
-    output = tf.get_default_graph().get_tensor_by_name('Validation/output_softmax:0')
+    image = tf.get_default_graph().get_tensor_by_name('input_image:0')
+    output = tf.get_default_graph().get_tensor_by_name('output_softmax:0')
 
     # Feed an image and test the result
     if not os.path.exists(args.input_image):

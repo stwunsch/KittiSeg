@@ -2,6 +2,8 @@ py2_virtualenv
 *.png
 *.swp
 *.swo
+KittiSeg*
+renamed
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
